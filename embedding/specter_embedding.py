@@ -1,6 +1,10 @@
 from transformers import AutoTokenizer, AutoModel
 import torch
-model_path = "models/specter2/specter2_base"
+import os
+
+# Construct path relative to this file's location
+current_dir = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(current_dir, "..", "models", "specter2_base")
 
 tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True)
 model = AutoModel.from_pretrained(model_path, local_files_only=True)
