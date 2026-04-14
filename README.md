@@ -1,5 +1,10 @@
 # Research Paper Analyzer Backend
 
+## Contributors
+
+- [Jaineel Chhatraliya](https://github.com/CodeByJc) (jaineelchhatraliya@gmail.com)
+- [Om Makadia](https://github.com/ommakadiya) (ommakadia1615@gmail.com)
+
 This backend provides a FastAPI service that reads a research paper PDF and extracts the core scientific intent of the paper, especially:
 
 - Research goal
@@ -155,4 +160,5 @@ Then use it and have fun.
 - If Ollama is not running, start it and ensure qwen2.5:14b is available locally.
 - If needed, pull the model:
 	- ollama pull qwen2.5:14b
+
 
