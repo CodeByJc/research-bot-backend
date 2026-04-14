@@ -12,7 +12,7 @@ from backend.llm.qwen_client import generate_answer
 
 app = FastAPI()
 
-UPLOAD_DIR = "uploads/"
+UPLOAD_DIR = "backend/uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 @app.post("/analyze")
