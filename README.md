@@ -35,8 +35,6 @@ When you call the analyze API with a PDF, the backend performs the following ste
 - Input: multipart/form-data with one PDF file field named file
 - Output: JSON with fields:
 	- short_goal
-	- short_method
-	- detailed_goal
 	- detailed_method
 
 ## Tech Stack Used
