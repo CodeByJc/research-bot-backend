@@ -85,7 +85,7 @@ After install, open a new terminal.
 
 From your workspace directory:
 
-git clone https://github.com/CodeByJc/research-bot-git
+git clone https://github.com/CodeByJc/research-bot-backend
 cd research-bot
 
 ### 3) Ensure GROBID source is present in backend/grobid
