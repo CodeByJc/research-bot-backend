@@ -1,5 +1,5 @@
 import requests
-from backend.config import OLLAMA_URL, MODEL_NAME
+from config import OLLAMA_URL, MODEL_NAME
 
 def generate_answer(prompt):
     """Send the composed prompt to Ollama and return the model text output."""

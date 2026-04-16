@@ -85,7 +85,7 @@ After install, open a new terminal.
 
 From your workspace directory:
 
-git clone https://github.com/CodeByJc/research-bot-backend.git
+git clone https://github.com/CodeByJc/research-bot-git
 cd research-bot
 
 ### 3) Ensure GROBID source is present in backend/grobid
@@ -134,7 +134,7 @@ This exposes GROBID at http://localhost:8070.
 
 From repository root:
 
-python -m uvicorn backend.main:app --reload
+python -m uvicorn main:app --reload
 
 Server runs at:
 

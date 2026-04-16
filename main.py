@@ -1,18 +1,32 @@
 from fastapi import FastAPI, UploadFile, File
+from fastapi.middleware.cors import CORSMiddleware
 import os
 import json
 import re
-from backend.parser.grobid_parser import parse_with_grobid
-from backend.utils.preprocess import clean_text
-from backend.rag.chunking import chunk_text
-from backend.embedding.specter_embedding import get_embedding
-from backend.rag.vector_store import VectorStore
-from backend.rag.retrieval import retrieve_chunks
-from backend.llm.qwen_client import generate_answer
+from parser.grobid_parser import parse_with_grobid
+from utils.preprocess import clean_text
+from rag.chunking import chunk_text
+from embedding.specter_embedding import get_embedding
+from rag.vector_store import VectorStore
+from rag.retrieval import retrieve_chunks
+from llm.qwen_client import generate_answer
 
 app = FastAPI()
 
-UPLOAD_DIR = "backend/uploads"
+FRONTEND_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=FRONTEND_ORIGINS,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 @app.post("/analyze")
@@ -126,9 +140,7 @@ async def analyze(file: UploadFile = File(...)):
     Extract the following (STRICT LENGTH + EXPANSION REQUIRED):
 
     1. Short Research Goal → EXACTLY 2 sentences (minimum 25 words total)
-    2. Short Research Method → EXACTLY 3 sentences (minimum 50 words total)
-    3. Detailed Research Goal → EXACTLY 4 sentences (~80–100 words)
-    4. Detailed Research Method → EXACTLY 7–8 sentences (~120–150 words)
+    2. Detailed Research Method → EXACTLY 7–8 sentences (~120–150 words)
 
     MANDATORY RULES:
     - If output is too short → EXPAND with more technical detail
@@ -162,8 +174,6 @@ async def analyze(file: UploadFile = File(...)):
 
     {{
     "short_goal": "...",
-    "short_method": "...",
-    "detailed_goal": "...",
     "detailed_method": "..."
     }}
     """

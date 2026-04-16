@@ -1,4 +1,4 @@
-from backend.embedding.specter_embedding import get_embedding
+from embedding.specter_embedding import get_embedding
 
 def retrieve_chunks(vector_store, query,k=5):
     """Embed a query and return nearest chunks from the vector index."""

@@ -1,5 +1,5 @@
 import requests
-from backend.config import GROBID_URL
+from config import GROBID_URL
 
 def parse_with_grobid(pdf_path):
     """Parse a PDF with GROBID and return extracted full-text content."""
