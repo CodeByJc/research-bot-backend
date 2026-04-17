@@ -2,3 +2,5 @@ uploads/*
 !uploads/__init__.py
 !uploads/__pycache__
 !uploads/__pycache__/
+grobid/*
+research-bot/*
