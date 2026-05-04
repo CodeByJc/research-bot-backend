@@ -16,6 +16,9 @@ app = FastAPI()
 FRONTEND_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    # Production frontend (your live site)
+    "http://researchbot.jc7.in",
+    "https://researchbot.jc7.in",
 ]
 
 app.add_middleware(
